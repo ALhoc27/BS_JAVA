@@ -63,8 +63,9 @@ int length = func.apply("Hello, World!"); // Пример использован
 
 [^2]: Реализует метод:\
 
-`length()`
-`<mark style="color:green;">R</mark> apply(T <mark style="color:blue;">t</mark>)`;\
+   ```java
+    R apply(T t);
+    ```;\
     где **S** - это параметр <mark style="color:blue;">t</mark>, который является типом **String**, тип <mark style="color:green;">R</mark> в данном случае должен быть **int**.
 
     Метод \
