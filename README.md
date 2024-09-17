@@ -26,7 +26,7 @@ layout:
 `R apply(T t)`
 
 ```java
-R apply(T t)1;
+R apply(T t);
 ```
 
 <table data-full-width="true"><thead><tr><th width="204">С использованием:</th><th width="696">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
