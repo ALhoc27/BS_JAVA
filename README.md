@@ -61,7 +61,7 @@ int length = func.apply("Hello, World!"); // Пример использован
 
     <mark style="color:orange;">Вызывается у объектов типа</mark> <mark style="color:orange;">**`String`**</mark>
 
-[^2]: Реализует метод:1\
+[^2]: Реализует метод:12\
     <mark style="color:green;">R</mark> apply(T <mark style="color:blue;">t</mark>);\
     где **S** - это параметр <mark style="color:blue;">t</mark>, который является типом **String**, тип <mark style="color:green;">R</mark> в данном случае должен быть **int**.
 
