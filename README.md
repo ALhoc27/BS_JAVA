@@ -32,7 +32,7 @@ int length = func.apply("Hello, World!");
     public Integer apply(String s) {
         return s.length();
     }
-};
+};%
 
 int length = func.apply("Hello, World!");
 </code></pre></td><td></td></tr><tr><td>Отдельного класса, который реализует интерфейс <code>Function</code></td><td><pre class="language-java"><code class="lang-java">class StringLengthFunction implements Function&#x3C;String, Integer> {
@@ -50,7 +50,7 @@ int length = func.apply("Hello, World!");
 
 * Принимает два аргумента типов `T` и `U` и возвращает результат типа `R`.
 * Метод: `R apply(T t, U u)`
-* Пример: Сложение двух чисел.
+* Пример: Сложение двух чисел.1
 
 <table data-full-width="true"><thead><tr><th width="204">С использованием:</th><th width="696">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
 int length = func.apply("Hello, World!"); // Пример использования функции
