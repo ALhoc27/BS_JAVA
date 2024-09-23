@@ -28,14 +28,14 @@ layout:
 int length = func.apply("Hello, World!"); // Пример использования функции
 </code></pre></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-2">s ->s.length();</a>
 int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Анонимной реализации интерфейса <code>Function</code></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = new Function&#x3C;String, Integer>() {
+</code></pre></td><td></td></tr><tr><td>Анонимной реализации интерфейса <strong><code>Function</code></strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = new Function&#x3C;String, Integer>() {
     @Override
     public Integer apply(String s) {
         return s.length();
     }
 };
 int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Отдельного класса, который реализует интерфейс <code>Function</code></td><td><pre class="language-java"><code class="lang-java">class StringLengthFunction implements Function&#x3C;String, Integer> {
+</code></pre></td><td></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong><code>Function</code></strong></td><td><pre class="language-java"><code class="lang-java">class StringLengthFunction implements Function&#x3C;String, Integer> {
     @Override
     public Integer apply(String s) {
         return s.length();
@@ -50,11 +50,43 @@ int length = func.apply("Hello, World!"); // Пример использован
 
 * Принимает два аргумента типов `T` и `U`, возвращает результат типа `R`.
 * Метод: `R apply(T t, U u)`
-* Пример: Сложение двух чисел.\
+* Пример: Сложение двух чисел.
 
+<table data-full-width="true"><thead><tr><th width="202">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = Integer::sum;
+System.out.println(sum.apply(5, 3)); // Результат: 8
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = (a, b) -> a + b; System.out.println(sum.apply(5, 3)); // Результат: 8
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>BiFunction</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
 
-<table data-full-width="true"><thead><tr><th width="205">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = (a, b) -> a + b; System.out.println(sum.apply(5, 3)); // Результат: 8
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+// Реализация интерфейса BiFunctio
+class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
+    @Override
+    public Integer apply(Integer a, Integer b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Использование реализации интерфейса
+        BiFunction&#x3C;Integer, Integer, Integer> sum = new SumFunction();
+        System.out.println(sum.apply(5, 3)); // Результат: 8
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>BiFunction</strong></td><td><pre class="language-java"><code class="lang-java">public class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
+
+    // Реализация метода apply
+    @Override
+    public Integer apply(Integer a, Integer b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        // Используем класс SumFunction
+        SumFunction sum = new SumFunction();
+        System.out.println(sum.apply(5, 3)); // Результат: 8
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **3.  Consumer**
 
@@ -62,8 +94,42 @@ int length = func.apply("Hello, World!"); // Пример использован
 * Метод: `void accept(T t)`
 * Пример: Вывод строки на консоль.
 
-<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer print = s -> System.out.println(s); print.accept("Hello, world!"); // Результат: Hello, world!
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = System.out::println;
+print.accept("Hello, world!"); // Результат: Hello, world!
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Consumer print = s -> System.out.println(s); 
+print.accept("Hello, world!"); // Результат: Hello, world!
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>Consumer</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.Consumer;
+
+public class Main {
+    public static void main(String[] args) {
+        // Анонимная реализация интерфейса Consumer
+        Consumer&#x3C;String> print = new Consumer&#x3C;String>() {
+            @Override
+            public void accept(String s) {
+                System.out.println(s);
+            }
+        };
+
+        print.accept("Hello, world!"); // Результат: Hello, world!
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>Consumer</strong></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">import java.util.function.Consumer;
+
+public class PrintConsumer implements Consumer&#x3C;String> {
+
+    // Реализация метода accept
+    @Override
+    public void accept(String s) {
+        System.out.println(s);
+    }
+
+    public static void main(String[] args) {
+        // Используем класс PrintConsumer
+        PrintConsumer print = new PrintConsumer();
+        print.accept("Hello, world!"); // Результат: Hello, world!
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **4.  BiConsumer\<T, U>**
 
@@ -71,8 +137,37 @@ int length = func.apply("Hello, World!"); // Пример использован
 * Метод: `void accept(T t, U u)`
 * Пример: Вывод двух строк на консоль.
 
-<table data-full-width="true"><thead><tr><th width="218">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Supplier supplier = () -> "Hello"; System.out.println(supplier.get()); // Результат: Hello
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="201">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">BiConsumer&#x3C;String, String> printBoth = PrintBoth::print;
+printBoth.accept("Hello", "world!"); // Результат: Hello world!
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-full-width="true"><code class="lang-java">BiConsumer&#x3C;String, String> printBoth = (s1, s2) -> System.out.println(s1 + " " + s2);
+printBoth.accept("Hello", "world!"); // Результат: Hello world!
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>BiConsumer</strong></td><td><pre class="language-java"><code class="lang-java">public static void main(String[] args) {
+    // Анонимная реализация BiConsumer
+    BiConsumer&#x3C;String, String> printBoth = new BiConsumer&#x3C;String, String>() {
+        @Override
+        public void accept(String s1, String s2) {
+            System.out.println(s1 + " " + s2);
+        }
+    };
+
+    // Вызов метода accept
+    printBoth.accept("Hello", "world!"); // Результат: Hello world!
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>BiConsumer</strong></td><td><pre class="language-java"><code class="lang-java">public class PrintBothConsumer implements BiConsumer&#x3C;String, String> {
+
+    // Реализация метода accept
+    @Override
+    public void accept(String s1, String s2) {
+        System.out.println(s1 + " " + s2);
+    }
+
+    public static void main(String[] args) {
+        // Используем класс PrintBothConsumer
+        PrintBothConsumer printBoth = new PrintBothConsumer();
+        printBoth.accept("Hello", "world!"); // Результат: Hello world!
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **5.  Supplier**
 
@@ -80,8 +175,37 @@ int length = func.apply("Hello, World!"); // Пример использован
 * Метод: `T get()`
 * Пример: Возвращает строку "Hello".
 
-<table data-full-width="true"><thead><tr><th width="213">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Supplier supplier = () -> "Hello"; System.out.println(supplier.get()); // Результат: Hello
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="213">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">Supplier&#x3C;String> supplier = HelloSupplier::getHello;
+System.out.println(supplier.get()); // Результат: Hello
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Supplier supplier = () -> "Hello"; System.out.println(supplier.get()); // Результат: Hello
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>Supplier</strong></td><td><pre class="language-java"><code class="lang-java">public class Main {
+    public static void main(String[] args) {
+        // Анонимная реализация интерфейса Supplier
+        Supplier&#x3C;String> supplier = new Supplier&#x3C;String>() {
+            @Override
+            public String get() {
+                return "Hello";
+            }
+        };
+
+        System.out.println(supplier.get()); // Результат: Hello
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>Supplier</strong></td><td><pre class="language-java"><code class="lang-java">public class HelloSupplier implements Supplier&#x3C;String> {
+
+    // Реализация метода get
+    @Override
+    public String get() {
+        return "Hello";
+    }
+
+    public static void main(String[] args) {
+        // Используем класс HelloSupplier
+        HelloSupplier supplier = new HelloSupplier();
+        System.out.println(supplier.get()); // Результат: Hello
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **6.  Predicate**
 
