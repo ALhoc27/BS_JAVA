@@ -1,69 +1,56 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
+# Лямбда-выражения
 
-# Функциональные интерфейсы
+**Лямбда-выражения** — это краткая форма записи анонимных функций, которая была введена в Java 8 для упрощения работы с функциональными интерфейсами, улучшения читаемости и компактности кода. Основное предназначение лямбда-выражений — передача поведения в виде параметров и возможность работы с функциональным стилем программирования в Java.
 
-Функциональный интерфейс — это интерфейс, содержащий один абстрактный метод. Он может иметь и другие методы, но они должны быть `default` или `static`. Чтобы указать, что интерфейс является функциональным, можно использовать аннотацию `@FunctionalInterface`, но она необязательна.
+## Синтаксис лямбда-выражений
 
-1Основные функциональные интерфейсы в пакете `java.util.function`:
+Общий синтаксис лямбда-выражений выглядит так:
 
-1. **Function\<T, R>**
-   * Принимает один аргумент типа `T` и возвращает результат типа `R` .
-   * Метод: `R apply(T t)`
-   * Пример: Преобразование строки в её длину.
+| Так                                                                                       | или так                                                                                       |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| <pre class="language-java"><code class="lang-java">(параметры) -> выражение
+</code></pre> | <pre class="language-java"><code class="lang-java">(параметры) -> { блок кода }
+</code></pre> |
 
-`R apply(T t)`
+### **Примеры:**
+
+**1.** **Лямбда-выражение с одним параметром:**
 
 ```java
-R apply(T t);
+x -> x * 2
 ```
 
-<table data-full-width="true"><thead><tr><th width="204">С использованием:</th><th width="696">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
-int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-2">s ->s.length();</a>
-int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Анонимной реализации интерфейса <code>Function</code></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = new Function&#x3C;String, Integer>() {
-    @Override
-    public Integer apply(String s) {
-        return s.length();
-    }
-};
-int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Отдельного класса, который реализует интерфейс <code>Function</code></td><td><pre class="language-java"><code class="lang-java">class StringLengthFunction implements Function&#x3C;String, Integer> {
-    @Override
-    public Integer apply(String s) {
-        return s.length();
-    }
+Это лямбда-выражение принимает один параметр `x` и возвращает его удвоенное значение.
+
+&#x20;**2.** **Лямбда-выражение с несколькими параметрами:**
+
+```java
+(a, b) -> a + b
+```
+
+Это выражение принимает два параметра `a` и `b`, и возвращает их сумму.
+
+**3.** **Лямбда-выражение без параметров:**
+
+```java
+() -> System.out.println("Hello, World!")
+```
+
+Это выражение не принимает параметров и выводит строку на экран.
+
+**4.** **Лямбда-выражение с блоком кода:**
+
+```java
+(int x, int y) -> {
+    int result = x + y;
+    return result;
 }
-// Использование
-Function&#x3C;String, Integer> func = new StringLengthFunction();
-int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr></tbody></table>
+```
 
-[^1]: Сигнатура метода `length()`
+Если нужно выполнить несколько инструкций, то их можно объединить в блок кода, как в этом примере.
 
-    ```java
-    public int length();
-    ```
+## Лямбда-выражения работают с функциональными интерфейсами&#x20;
 
-    Метод `length()` используется для получения длины строки (количества символов в строке). Он является методом класса `String` и возвращает значение типа `int`, количетсво символов в строке.
+— интерфейсами, у которых **есть только один абстрактный метод**. Например, интерфейсы `Runnable`, `Callable`, `Comparator`, и специально добавленные в Java 8 интерфейсы: `Function`, `Consumer`, `Supplier`, `Predicate`, и др.
 
-    <mark style="color:orange;">Вызывается у объектов типа</mark> <mark style="color:orange;">**`String`**</mark>
-
-[^2]: Реализует метод:12\
-    <mark style="color:green;">R</mark> apply(T <mark style="color:blue;">t</mark>);\
-    где **S** - это параметр <mark style="color:blue;">t</mark>, который является типом **String**, тип <mark style="color:green;">R</mark> в данном случае должен быть **int**.
-
-    Метод \
-    ![](<.gitbook/assets/Снимок экрана 2024-09-17 в 12.09.13.png>)
+[<mark style="color:orange;">**Функциональные интерфейсы**</mark>](<README (1).md>)
