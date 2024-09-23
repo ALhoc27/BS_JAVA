@@ -254,9 +254,41 @@ System.out.println(isEven.test(4)); // Результат: true
 * Метод: `boolean test(T t, U u)`
 * Пример: Проверка, если два числа равны.
 
-<table data-full-width="true"><thead><tr><th width="219"></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">BiPredicate&#x3C;Integer, Integer> isEqual = (a, b) -> a.equals(b);
+<table data-full-width="true"><thead><tr><th width="219"></th><th></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">BiPredicate&#x3C;Integer, Integer> biPredicate = EqualityPredicate::isEqual;
+System.out.println(biPredicate.test(5, 5)); // Результат: true
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">BiPredicate&#x3C;Integer, Integer> isEqual = (a, b) -> a.equals(b);
 System.out.println(isEqual.test(5, 5)); // Результат: true
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>BiPredicate</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiPredicate;
+public class EqualPredicateExample {
+
+    public static void main(String[] args) {
+        // Анонимная реализация BiPredicate
+        BiPredicate&#x3C;Integer, Integer> isEqual = new BiPredicate&#x3C;Integer, Integer>() {
+            @Override
+            public boolean test(Integer a, Integer b) {
+                return a.equals(b);
+            }
+        };
+
+        System.out.println(isEqual.test(5, 5)); // Результат: true
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>BiPredicate</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiPredicate;
+public class EqualPredicate implements BiPredicate&#x3C;Integer, Integer> {
+
+    // Реализация метода test
+    @Override
+    public boolean test(Integer a, Integer b) {
+        return a.equals(b);
+    }
+
+    public static void main(String[] args) {
+        // Используем класс EqualPredicate
+        EqualPredicate isEqual = new EqualPredicate();
+        System.out.println(isEqual.test(5, 5)); // Результат: true
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **8.  UnaryOperator**
 
@@ -266,9 +298,42 @@ System.out.println(isEqual.test(5, 5)); // Результат: true
 
 
 
-<table data-full-width="true"><thead><tr><th width="223"></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">UnaryOperator&#x3C;Integer> increment = n -> n + 1;
+<table data-full-width="true"><thead><tr><th width="223"></th><th></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">UnaryOperator&#x3C;Integer> increment = IncrementOperator::increment;
 System.out.println(increment.apply(5)); // Результат: 6
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">UnaryOperator&#x3C;Integer> increment = n -> n + 1;
+System.out.println(increment.apply(5)); // Результат: 6
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>UnaryOperator</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.UnaryOperator;
+
+public class IncrementExample {
+    public static void main(String[] args) {
+        // Анонимная реализация интерфейса UnaryOperator
+        UnaryOperator&#x3C;Integer> increment = new UnaryOperator&#x3C;Integer>() {
+            @Override
+            public Integer apply(Integer n) {
+                return n + 1;
+            }
+        };
+
+        System.out.println(increment.apply(5)); // Результат: 6
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>UnaryOperator</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.UnaryOperator;
+
+public class IncrementOperator implements UnaryOperator&#x3C;Integer> {
+
+    // Реализация метода apply
+    @Override
+    public Integer apply(Integer n) {
+        return n + 1;
+    }
+
+    public static void main(String[] args) {
+        // Используем класс IncrementOperator
+        IncrementOperator increment = new IncrementOperator();
+        System.out.println(increment.apply(5)); // Результат: 6
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **9.  BinaryOperator**
 
@@ -276,9 +341,42 @@ System.out.println(increment.apply(5)); // Результат: 6
 * Метод: `int applyAsInt(T value)`
 * Пример: Преобразование строки в её длину.
 
-<table data-full-width="true"><thead><tr><th width="225"></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">ToIntFunction&#x3C;String> stringLength = s -> s.length();
+<table data-full-width="true"><thead><tr><th width="225"></th><th></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">ToIntFunction&#x3C;String> stringLength = StringLengthFunction::getStringLength;
 System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">ToIntFunction&#x3C;String> stringLength = s -> s.length();
+System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>BinaryOperator</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.ToIntFunction;
+
+public class Main {
+    public static void main(String[] args) {
+        // Анонимная реализация интерфейса ToIntFunction
+        ToIntFunction&#x3C;String> stringLength = new ToIntFunction&#x3C;String>() {
+            @Override
+            public int applyAsInt(String s) {
+                return s.length();
+            }
+        };
+
+        System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>BinaryOperator</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.ToIntFunction;
+
+public class StringLengthFunction implements ToIntFunction&#x3C;String> {
+
+    // Реализация метода applyAsInt
+    @Override
+    public int applyAsInt(String s) {
+        return s.length();
+    }
+
+    public static void main(String[] args) {
+        // Используем класс StringLengthFunction
+        StringLengthFunction stringLength = new StringLengthFunction();
+        System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **10.  ToIntFunction**
 
@@ -286,9 +384,42 @@ System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
 * Метод: `int applyAsInt(T value)`
 * Пример: Преобразование строки в её длину.
 
-<table data-full-width="true"><thead><tr><th width="228"></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">ToIntFunction&#x3C;String> stringLength = s -> s.length();
+<table data-full-width="true"><thead><tr><th width="228"></th><th></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">ToIntFunction&#x3C;String> stringLength = StringLength::getLength;
 System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">ToIntFunction&#x3C;String> stringLength = s -> s.length();
+System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>ToIntFunction</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.ToIntFunction;
+
+public class Main {
+    public static void main(String[] args) {
+        // Анонимная реализация ToIntFunction
+        ToIntFunction&#x3C;String> stringLength = new ToIntFunction&#x3C;String>() {
+            @Override
+            public int applyAsInt(String s) {
+                return s.length();
+            }
+        };
+
+        System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>ToIntFunction</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.ToIntFunction;
+
+public class StringLengthFunction implements ToIntFunction&#x3C;String> {
+
+    // Реализация метода applyAsInt
+    @Override
+    public int applyAsInt(String s) {
+        return s.length();
+    }
+
+    public static void main(String[] args) {
+        // Используем класс StringLengthFunction
+        StringLengthFunction stringLength = new StringLengthFunction();
+        System.out.println(stringLength.applyAsInt("Hello")); // Результат: 5
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 [^1]: Сигнатура метода `length()`
 
