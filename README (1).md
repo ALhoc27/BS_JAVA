@@ -213,9 +213,40 @@ System.out.println(supplier.get()); // Результат: Hello
 * Метод: `boolean test(T t)`
 * Пример: Проверка, является ли число четным.
 
-<table data-full-width="true"><thead><tr><th width="217"></th><th></th></tr></thead><tbody><tr><td></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">Predicate&#x3C;Integer> isEven = n -> n % 2 == 0;
+<table data-full-width="true"><thead><tr><th width="217"></th><th></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">Predicate&#x3C;Integer> predicate = EvenPredicate::isEven;
+System.out.println(predicate.test(4)); // Результат: true
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">Predicate&#x3C;Integer> isEven = n -> n % 2 == 0;
 System.out.println(isEven.test(4)); // Результат: true
-</code></pre></td></tr><tr><td></td><td></td></tr></tbody></table>
+</code></pre></td></tr><tr><td>Анонимной реализации интерфейса <br><strong>Predicate</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.Predicate;
+<strong>public class EvenPredicateExample {
+</strong>    public static void main(String[] args) {
+        // Анонимная реализация интерфейса Predicate
+        Predicate&#x3C;Integer> isEven = new Predicate&#x3C;Integer>() {
+            @Override
+            public boolean test(Integer n) {
+                return n % 2 == 0;
+            }
+        };
+
+        System.out.println(isEven.test(4)); // Результат: true
+    }
+}
+</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>Predicate</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.Predicate;
+<strong>public class IsEvenPredicate implements Predicate&#x3C;Integer> {
+</strong>
+    // Реализация метода test
+    @Override
+    public boolean test(Integer n) {
+        return n % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        // Используем класс IsEvenPredicate
+        IsEvenPredicate isEven = new IsEvenPredicate();
+        System.out.println(isEven.test(4)); // Результат: true
+    }
+}
+</code></pre></td></tr></tbody></table>
 
 **7.  BiPredicate\<T, U>**
 
