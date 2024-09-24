@@ -9,3 +9,7 @@
 ## Тесты
 
 * [Тесты (Junit5)](testy/testy-junit5.md)
+
+## Паттерны
+
+* [Page 1](patterny/page-1.md)
