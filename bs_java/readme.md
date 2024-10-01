@@ -18,6 +18,18 @@ layout:
 
 Основные функциональные интерфейсы в пакете `java.util.function`:
 
+#### 1. **Function\<T, R>**
+
+* Принимает один аргумент типа `T` и возвращает результат типа `R` .
+* Метод: `R apply(T t)`
+
+#### **2. BiFunction\<T, U, R>**
+
+* `Принимает два аргумента типов T и U, возвращает результат типа R.`
+* `Метод: R apply(T t, U u)`
+
+
+
 ### 1. **Function\<T, R>**
 
 * Принимает один аргумент типа `T` и возвращает результат типа `R` .
@@ -55,7 +67,7 @@ int length = func.apply("Hello, World!"); // Пример использован
 <table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-3">Integer::sum</a>;
 System.out.println(sum.apply(5, 3)); // Результат: 8
 </code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-4">(a, b) -> a + b;</a> System.out.println(sum.apply(5, 3)); // Результат: 8е
-</code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br>BiFunction</td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
+</code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br><code>BiFunction</code></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
 
 class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
     @Override
@@ -70,7 +82,7 @@ public class Main {
         System.out.println(sum.apply(5, 3)); // Результат: 8
     }
 }
-</code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс BiFunction</td><td><pre class="language-java"><code class="lang-java">public class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
+</code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс <code>BiFunction</code></td><td><pre class="language-java"><code class="lang-java">public class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
     @Override
     public Integer apply(Integer a, Integer b) {    
         return a + b;
@@ -89,11 +101,11 @@ public class Main {
 * Метод: `void accept(T t)`
 * Пример: Вывод строки на консоль.
 
-<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на мето</strong>д</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = <a data-footnote-ref href="#user-content-fn-5">System.out::println;</a>
+<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = <a data-footnote-ref href="#user-content-fn-5">System.out::println;</a>
 print.accept("Hello, world!"); // Результат: Hello, world!
 </code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Consumer print = s -> <a data-footnote-ref href="#user-content-fn-6">System.out.println(s);</a> 
 print.accept("Hello, world!"); // Результат: Hello, world!
-</code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br>Consumer</td><td><pre class="language-java"><code class="lang-java">import java.util.function.Consumer;
+</code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br><code>Consumer</code></td><td><pre class="language-java"><code class="lang-java">import java.util.function.Consumer;
 
 <strong>public static void main(String[] args) {
 </strong>// Анонимная реализация интерфейса Consumer
@@ -105,7 +117,7 @@ print.accept("Hello, world!"); // Результат: Hello, world!
 }
 
 print.accept("Hello, world!");
-</code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс Consumer</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">import java.util.function.Consumer;
+</code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс <code>Consumer</code></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">import java.util.function.Consumer;
 public class PrintConsumer implements Consumer&#x3C;String> {
 <strong>    // Реализация метода accept
 </strong>    @Override
@@ -125,11 +137,11 @@ public class PrintConsumer implements Consumer&#x3C;String> {
 * Метод: `void accept(T t, U u)`
 * Пример: Вывод двух строк на консоль.
 
-<table data-full-width="true"><thead><tr><th width="201">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">BiConsumer&#x3C;String, String> printBoth = PrintBoth::print;
+<table data-full-width="true"><thead><tr><th width="201">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">BiConsumer&#x3C;String, String> printBoth = PrintBoth::print;
 printBoth.accept("Hello", "world!"); // Результат: Hello world!
-</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-full-width="true"><code class="lang-java">BiConsumer&#x3C;String, String> printBoth = (s1, s2) -> System.out.println(s1 + " " + s2);
+</code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-full-width="true"><code class="lang-java">BiConsumer&#x3C;String, String> printBoth = (s1, s2) -> System.out.println(s1 + " " + s2);
 printBoth.accept("Hello", "world!"); // Результат: Hello world!
-</code></pre></td></tr><tr><td>Анонимной реализации интерфейса<br><strong>BiConsumer</strong></td><td><pre class="language-java"><code class="lang-java">public static void main(String[] args) {
+</code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br><code>BiConsumer</code></td><td><pre class="language-java"><code class="lang-java">public static void main(String[] args) {
     // Анонимная реализация BiConsumer
     BiConsumer&#x3C;String, String> printBoth = new BiConsumer&#x3C;String, String>() {
         @Override
@@ -137,10 +149,19 @@ printBoth.accept("Hello", "world!"); // Результат: Hello world!
             System.out.println(s1 + " " + s2);
         }
     };
-// Вызов метода acceptprintBoth.accept("Hello", "world!"); // Результат: Hello world!
+    
+    printBoth.accept("Hello", "world!"); // Вызов метода accept
 }
-</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>BiConsumer</strong></td><td><pre class="language-java"><code class="lang-java">public class PrintBothConsumer implements BiConsumer&#x3C;String, String> {
-// Реализация метода accept@Overridepublic void accept(String s1, String s2) {    System.out.println(s1 + " " + s2);}public static void main(String[] args) {    // Используем класс PrintBothConsumer    PrintBothConsumer printBoth = new PrintBothConsumer();    printBoth.accept("Hello", "world!"); // Результат: Hello world!}
+</code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс <code>BiConsumer</code></td><td><pre class="language-java"><code class="lang-java">public class PrintBothConsumer implements BiConsumer&#x3C;String, String> {
+    // Реализация метода accept
+    @Override
+    public void accept(String s1, String s2) {    
+<strong>        System.out.println(s1 + " " + s2);
+</strong>    }
+    public static void main(String[] args) {
+        PrintBothConsumer printBoth = new PrintBothConsumer();    
+        printBoth.accept("Hello", "world!"); // Результат: Hello world!
+    }
 }
 </code></pre></td></tr></tbody></table>
 
