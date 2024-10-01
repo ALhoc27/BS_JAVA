@@ -46,7 +46,7 @@ Function&#x3C;String, Integer> func = new StringLengthFunction();
 int length = func.apply("Hello, World!"); // Пример использования функции
 </code></pre></td><td></td></tr></tbody></table>
 
-#### **2. BiFunction\<T, U, R>**
+### **2. BiFunction\<T, U, R>**
 
 * Принимает два аргумента типов `T` и `U`, возвращает результат типа `R`.
 * Метод: `R apply(T t, U u)`
@@ -55,23 +55,31 @@ int length = func.apply("Hello, World!"); // Пример использован
 <table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-3">Integer::sum</a>;
 System.out.println(sum.apply(5, 3)); // Результат: 8
 </code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-4">(a, b) -> a + b;</a> System.out.println(sum.apply(5, 3)); // Результат: 8е
-</code></pre></td></tr><tr><td>Анонимной реализации интерфейса<br><strong>BiFunction</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
-// Реализация интерфейса BiFunctio
+</code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br>BiFunction</td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
+
 class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
-@Override
-public Integer apply(Integer a, Integer b) {
-return a + b;
-}
+    @Override
+    public Integer apply(Integer a, Integer b) {
+        return a + b;
+    }
 }
 public class Main {
-public static void main(String[] args) {
-// Использование реализации интерфейса
-BiFunction&#x3C;Integer, Integer, Integer> sum = new SumFunction();
-System.out.println(sum.apply(5, 3)); // Результат: 8
+    public static void main(String[] args) {
+    // Использование реализации интерфейса
+    BiFunction&#x3C;Integer, Integer, Integer> sum = new SumFunction();
+        System.out.println(sum.apply(5, 3)); // Результат: 8
+    }
 }
-}
-</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>BiFunction</strong></td><td><pre class="language-java"><code class="lang-java">public class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
-// Реализация метода apply@Overridepublic Integer apply(Integer a, Integer b) {    return a + b;}public static void main(String[] args) {    // Используем класс SumFunction    SumFunction sum = new SumFunction();    System.out.println(sum.apply(5, 3)); // Результат: 8}
+</code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс BiFunction</td><td><pre class="language-java"><code class="lang-java">public class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
+    @Override
+    public Integer apply(Integer a, Integer b) {    
+        return a + b;
+    }
+    
+    public static void main(String[] args) {    
+        SumFunction sum = new SumFunction();    
+        System.out.println(sum.apply(5, 3)); 
+    }
 }
 </code></pre></td></tr></tbody></table>
 
