@@ -83,31 +83,39 @@ public class Main {
 }
 </code></pre></td></tr></tbody></table>
 
-**3. Consumer**
+### **3. Consumer\<T>**
 
 * Принимает один аргумент типа `T` и не возвращает результата.
 * Метод: `void accept(T t)`
 * Пример: Вывод строки на консоль.
 
-<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = System.out::println;
+<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на мето</strong>д</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = <a data-footnote-ref href="#user-content-fn-5">System.out::println;</a>
 print.accept("Hello, world!"); // Результат: Hello, world!
-</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Consumer print = s -> System.out.println(s); 
+</code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Consumer print = s -> <a data-footnote-ref href="#user-content-fn-6">System.out.println(s);</a> 
 print.accept("Hello, world!"); // Результат: Hello, world!
-</code></pre></td></tr><tr><td>Анонимной реализации интерфейса<br><strong>Consumer</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.Consumer;
-public class Main {
-public static void main(String[] args) {
-// Анонимная реализация интерфейса Consumer
-Consumer&#x3C;String> print = new Consumer&#x3C;String>() {
-@Override
-public void accept(String s) {
-System.out.println(s);
+</code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br>Consumer</td><td><pre class="language-java"><code class="lang-java">import java.util.function.Consumer;
+
+<strong>public static void main(String[] args) {
+</strong>// Анонимная реализация интерфейса Consumer
+    Consumer&#x3C;String> print = new Consumer&#x3C;String>() {
+        @Override
+        public void accept(String s) {
+        System.out.println(s);
+    }
 }
-};
-    print.accept("Hello, world!"); // Результат: Hello, world!}
-}
-</code></pre></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong>Consumer</strong></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">import java.util.function.Consumer;
+
+print.accept("Hello, world!");
+</code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс Consumer</td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">import java.util.function.Consumer;
 public class PrintConsumer implements Consumer&#x3C;String> {
-// Реализация метода accept@Overridepublic void accept(String s) {    System.out.println(s);}public static void main(String[] args) {    // Используем класс PrintConsumer    PrintConsumer print = new PrintConsumer();    print.accept("Hello, world!"); // Результат: Hello, world!}
+<strong>    // Реализация метода accept
+</strong>    @Override
+    public void accept(String s) {    
+        System.out.println(s);
+    }    
+    public static void main(String[] args) { // Используем класс PrintConsumer                                 
+        PrintConsumer print = new PrintConsumer();    
+        print.accept("Hello, world!"); // Результат: Hello, world!
+    }
 }
 </code></pre></td></tr></tbody></table>
 
@@ -332,3 +340,10 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
     оно возвращает значение типа:`Integer`\
     Сочетается с сигнатурой метода:\
     `R apply(T t, U u)`
+
+[^5]: ![](<../.gitbook/assets/image (7).png>)
+
+[^6]: Реализует метод: `void accept(T t)`\
+    Интерфейса **Consumer\<T>**\
+    \
+    Принимает переменную типа **T**, при этом не чего не возвращая
