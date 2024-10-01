@@ -305,6 +305,6 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
 
     <mark style="color:orange;">Вызывается у объектов типа</mark> <mark style="color:orange;">**`String`**</mark>
 
-[^2]: Реализует метод: `R apply(T t);` где **s** - это параметр **t**, который является типом String, тип R в данном случае должен быть int.
+[^2]: Реализует метод: `R apply(T t);` где **s** - это параметр **t**, который является типом `String`, тип R в данном случае должен быть `int`.
 
     ![](<../.gitbook/assets/image (4).png>)
