@@ -26,12 +26,6 @@ layout:
 
 Реализует метод: `R apply(T t);` где **s** - это параметр **t**, который является типом String, тип R в данном случае должен быть int.
 
-
-
-{% hint style="info" %}
-Метод `apply(String s)` требует, чтобы ему был передан аргумент типа `String`. Метод `length()` вызывается на экземпляре строки, то есть он подходит, поскольку его можно применить к объекту типа `String`. Метод `length()` не принимает аргументов, но это согласуется с тем фактом, что `apply()` передаёт строку объекту, на котором вызывается `length()`.
-{% endhint %}
-
 <table data-full-width="true"><thead><tr><th width="186">С использованием:</th><th width="800">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
 int length = func.apply("Hello, World!"); // Пример использования функции
 </code></pre></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-2">s -> s.length();</a>
