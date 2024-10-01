@@ -54,7 +54,7 @@ int length = func.apply("Hello, World!"); // Пример использован
 
 <table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-3">Integer::sum</a>;
 System.out.println(sum.apply(5, 3)); // Результат: 8
-</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = (a, b) -> a + b; System.out.println(sum.apply(5, 3)); // Результат: 8е
+</code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-4">(a, b) -> a + b;</a> System.out.println(sum.apply(5, 3)); // Результат: 8е
 </code></pre></td></tr><tr><td>Анонимной реализации интерфейса<br><strong>BiFunction</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
 // Реализация интерфейса BiFunctio
 class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
@@ -314,5 +314,13 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
     Метод `sum()` принимает два аргумента типа `int` и возвращает их сумму.\
 
 
+    Сочетается с сигнатурой метода:\
+    `R apply(T t, U u)`
+
+[^4]: Принимает (a, b) аргументы типа:\
+    `Integer, Integer`\
+    **Тело функции** (лямбды) :\
+    \-> a + b; \
+    оно возвращает значение типа:`Integer`\
     Сочетается с сигнатурой метода:\
     `R apply(T t, U u)`
