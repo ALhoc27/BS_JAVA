@@ -53,4 +53,4 @@ x -> x * 2
 
 — интерфейсами, у которых **есть только один абстрактный метод**. Например, интерфейсы `Runnable`, `Callable`, `Comparator`, и специально добавленные в Java 8 интерфейсы: `Function`, `Consumer`, `Supplier`, `Predicate`, и др.
 
-[<mark style="color:orange;">**Функциональные интерфейсы**</mark>](bs\_java/)
+[<mark style="color:orange;">**Функциональные интерфейсы**</mark>](broken-reference)
