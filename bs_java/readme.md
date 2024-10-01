@@ -24,18 +24,18 @@ layout:
 * Метод: `R apply(T t)`
 * **Пример:** Преобразование строки в её длину.
 
-<table data-full-width="true"><thead><tr><th width="168">С использованием:</th><th width="787">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
+<table data-full-width="true"><thead><tr><th width="168">С использованием:</th><th width="787">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
 int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-2">s -> s.length();</a>
+</code></pre></td><td></td></tr><tr><td><strong>Лямбды-выражения</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-2">s -> s.length();</a>
 <strong>int length = func.apply("Hello, World!"); // Пример использования функции
-</strong></code></pre></td><td></td></tr><tr><td>Анонимной реализации интерфейса <strong><code>Function</code></strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = new Function&#x3C;>() {
+</strong></code></pre></td><td></td></tr><tr><td><strong>Анонимной реализации</strong> интерфейса <code>Function</code></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = new Function&#x3C;>() {
     @Override
     public Integer apply(String s) {
         return s.length();
     }
 };
 int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Отдельного класса, который реализует интерфейс <strong><code>Function</code></strong></td><td><pre class="language-java"><code class="lang-java">class StringLengthFunction implements Function&#x3C;String, Integer> {
+</code></pre></td><td></td></tr><tr><td><strong>Отдельного класса</strong>, который реализует интерфейс <code>Function</code></td><td><pre class="language-java"><code class="lang-java">class StringLengthFunction implements Function&#x3C;String, Integer> {
     @Override
     public Integer apply(String s) {
         return s.length();
@@ -52,9 +52,9 @@ int length = func.apply("Hello, World!"); // Пример использован
 * Метод: `R apply(T t, U u)`
 * Пример: Сложение двух чисел.
 
-<table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = Integer::sum;
+<table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-3">Integer::sum</a>;
 System.out.println(sum.apply(5, 3)); // Результат: 8
-</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = (a, b) -> a + b; System.out.println(sum.apply(5, 3)); // Результат: 8
+</code></pre></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = (a, b) -> a + b; System.out.println(sum.apply(5, 3)); // Результат: 8е
 </code></pre></td></tr><tr><td>Анонимной реализации интерфейса<br><strong>BiFunction</strong></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
 // Реализация интерфейса BiFunctio
 class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
@@ -306,3 +306,13 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
 [^2]: Реализует метод: `R apply(T t);` где **s** - это параметр **t**, который является типом `String`, тип R в данном случае должен быть `int`.
 
     ![](<../.gitbook/assets/image (4).png>)
+
+[^3]: ![](<../.gitbook/assets/image (6).png>)
+
+    #### Описание:
+
+    Метод `sum()` принимает два аргумента типа `int` и возвращает их сумму.\
+
+
+    Сочетается с сигнатурой метода:\
+    `R apply(T t, U u)`
