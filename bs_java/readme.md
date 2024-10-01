@@ -24,22 +24,9 @@ layout:
 * Метод: `R apply(T t)`
 * Пример: Преобразование строки в её длину.
 
-<table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th width="800">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><p>Cсылки на метод</p><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
+<table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th width="800">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td>Cсылки на метод</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-1">length</a>;
 int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">
-Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-2">s ->s.length();</a>
-int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre><p><br>Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-3">s ->s.length();</a></p><pre><code>
-Function&#x3C;String, Integer> func = 
-s ->s.length();
-Реализует метод:12
-R apply(T t);
-где S - это параметр t, который является типом String, тип R в данном случае должен быть int.
-Метод
-
-
-
-
+</code></pre></td><td></td></tr><tr><td>Лямбды-выражения</td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-2">s ->s.length();</a>
 int length = func.apply("Hello, World!"); // Пример использования функции
 </code></pre></td><td></td></tr><tr><td>Анонимной реализации интерфейса <strong><code>Function</code></strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = new Function&#x3C;String, Integer>() {
     @Override
@@ -445,13 +432,6 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
     <mark style="color:orange;">Вызывается у объектов типа</mark> <mark style="color:orange;">**`String`**</mark>
 
 [^2]: Реализует метод:12\
-    <mark style="color:green;">R</mark> apply(T <mark style="color:blue;">t</mark>);\
-    где **S** - это параметр <mark style="color:blue;">t</mark>, который является типом **String**, тип <mark style="color:green;">R</mark> в данном случае должен быть **int**.
-
-    Метод\
-    ![](<../.gitbook/assets/Снимок экрана 2024-09-17 в 12.09.13.png>)
-
-[^3]: Реализует метод:12\
     <mark style="color:green;">R</mark> apply(T <mark style="color:blue;">t</mark>);\
     где **S** - это параметр <mark style="color:blue;">t</mark>, который является типом **String**, тип <mark style="color:green;">R</mark> в данном случае должен быть **int**.
 
