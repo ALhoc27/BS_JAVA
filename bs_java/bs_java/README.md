@@ -21,9 +21,9 @@ layout:
 
 ## 1. **Function\<T, R>**&#x20;
 
-### Реализует метод: `R apply(T t)`
+### `R apply(T t)`
 
-Принимает один аргумент типа `T` и возвращает результат типа `R` .
+Принимает один аргумент типа `T` и возвращает результат типа `R` .&#x20;
 
 * **Пример**.
 
@@ -49,9 +49,12 @@ Function&#x3C;String, Integer> func = new StringLengthFunction();
 int length = func.apply("Hello, World!"); // Пример использования функции
 </code></pre></td><td></td></tr></tbody></table>
 
-### **2. BiFunction\<T, U, R>**
+## **2. BiFunction\<T, U, R>**
 
-* Принимает два аргумента типов `T` и `U`, возвращает результат типа `R`.
+### `R apply(T t, U u)`
+
+Принимает два аргумента типов `T` и `U`, возвращает результат типа `R`.
+
 * Метод: `R apply(T t, U u)`
 * Пример: Сложение двух чисел.
 
@@ -82,10 +85,12 @@ public static void main(String[] args) {        SumFunction sum = new SumFunctio
 }
 </code></pre></td></tr></tbody></table>
 
-### **3. Consumer\<T>**
+## **3. Consumer\<T>**
 
-* Принимает один аргумент типа `T` и не возвращает результата.
-* Метод: `void accept(T t)`
+### `void accept(T t)`
+
+Принимает один аргумент типа `T` и не возвращает результата.
+
 * Пример: Вывод строки на консоль.
 
 <table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = <a data-footnote-ref href="#user-content-fn-7">System.out::println;</a>
