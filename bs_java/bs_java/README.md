@@ -23,81 +23,19 @@ layout:
 
 ### 1. **Function\<T, R>**&#x20;
 
+### Принимает один аргумент типа `T` и возвращает результат типа `R` .
+
+
+
+Принимает один аргумент типа `T` и возвращает результат типа `R` .
+
+
+
 * Принимает один аргумент типа `T` и возвращает результат типа `R` .
 * Метод: `R apply(T t)`
-* **Пример:** Преобразование строки в её длину.
+* **Пример**.
 
-{% tabs %}
-{% tab title="Пример: преобразование строки в число (парсинг строки в Integer)" %}
-<details>
-
-<summary><strong>Ссылка на метод</strong></summary>
-
-```java
-import java.util.function.Function;
-
-public class MethodReferenceExample {
-    public static void main(String[] args) {
-        // Использование ссылки на метод Integer::parseInt
-        Function<String, Integer> stringToInteger = Integer::parseInt;
-
-        // Пример использования функции
-        String input = "123";
-        int result = stringToInteger.apply(input);
-
-        System.out.println("Результат преобразования строки \"" + input + "\" = " + result);
-    }
-}
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Лямбды-выражения</strong></summary>
-
-```java
-import java.util.function.Function;
-
-public class LambdaExample {
-    public static void main(String[] args) {
-        // Использование лямбда-выражения для преобразования строки в Integer
-        Function<String, Integer> stringToInteger = str -> Integer.parseInt(str);
-
-        // Пример использования функции
-        String input = "123";
-        int result = stringToInteger.apply(input);
-
-        System.out.println("Результат преобразования строки \"" + input + "\" = " + result);
-    }
-}
-
-```
-
-</details>
-
-<details>
-
-<summary><strong>Анонимной реализации</strong> интерфейса <code>Function</code></summary>
-
-
-
-</details>
-
-<details>
-
-<summary><strong>Отдельного класса</strong>, который реализует интерфейс <code>Function</code></summary>
-
-
-
-</details>
-{% endtab %}
-{% endtabs %}
-
-
-
-<table data-full-width="true"><thead><tr><th width="168">С использованием:</th><th width="787">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-3">length</a>;
+<table data-full-width="true"><thead><tr><th width="168">С использованием:</th><th width="787">Пример: Преобразование строки в её длину.</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-3">length</a>;
 int length = func.apply("Hello, World!"); // Пример использования функции
 </code></pre></td><td></td></tr><tr><td><strong>Лямбды-выражения</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-4">s -> s.length();</a>
 <strong>int length = func.apply("Hello, World!"); // Пример использования функции
@@ -406,13 +344,13 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
 
     Вызывается у объектов типа **`String`**
 
-    <img src="../.gitbook/assets/image (5).png" alt="" data-size="original">
+    <img src="../../.gitbook/assets/image (5).png" alt="" data-size="original">
 
 [^4]: Реализует метод: `R apply(T t);` где **s** - это параметр **t**, который является типом `String`, тип R в данном случае должен быть `int`.
 
-    <img src="../.gitbook/assets/image (4).png" alt="" data-size="original">
+    <img src="../../.gitbook/assets/image (4).png" alt="" data-size="original">
 
-[^5]: <img src="../.gitbook/assets/image (6).png" alt="" data-size="original">
+[^5]: <img src="../../.gitbook/assets/image (6).png" alt="" data-size="original">
 
     **Описание:**
 
@@ -429,7 +367,7 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
     Сочетается с сигнатурой метода:\
     `R apply(T t, U u)`
 
-[^7]: <img src="../.gitbook/assets/image (7).png" alt="" data-size="original">
+[^7]: <img src="../../.gitbook/assets/image (7).png" alt="" data-size="original">
 
 [^8]: Реализует метод: `void accept(T t)`\
     Интерфейса **Consumer\<T>**\
