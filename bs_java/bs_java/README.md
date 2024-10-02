@@ -21,7 +21,7 @@ layout:
 
 
 
-### 1. **Function\<T, R>**&#x20;
+## 1. **Function\<T, R>**&#x20;
 
 ### 1`R apply(T t)`
 
