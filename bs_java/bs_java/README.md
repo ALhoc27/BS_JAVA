@@ -23,7 +23,9 @@ layout:
 
 ### 1. **Function\<T, R>**&#x20;
 
-#### 1`R apply(T t)`
+### 1`R apply(T t)`
+
+
 
 #### wefrfwfwref`R apply(T t)`
 
