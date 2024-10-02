@@ -20,7 +20,7 @@ layout:
 
 
 
-<table data-full-width="true"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><p><a data-footnote-ref href="#user-content-fn-1"><strong>Function&#x3C;T, R></strong></a></p><p>Принимает один аргумент типа <code>T</code> и возвращает результат типа <code>R</code> .</p><ul><li>Метод: <code>R apply(T t)</code></li></ul></td><td><p><a data-footnote-ref href="#user-content-fn-2"><strong>BiFunction&#x3C;T, U, R></strong></a></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает результат типа <code>R</code>.</p><ul><li>Метод: <code>R apply(T t, U u)</code></li></ul></td></tr><tr><td><p><a data-footnote-ref href="#user-content-fn-3"><strong>UnaryOperator&#x3C;T></strong></a></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-5"><code>Function</code></a>, которая принимает и возвращает один и тот же тип.</p><ul><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><a data-footnote-ref href="#user-content-fn-4"><strong>BinaryOperator&#x3C;T></strong></a></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-6">BiFunction</a>, где оба аргумента и результат одного типа. </p><ul><li>Метод: <code>T apply(T t1, T t2)</code></li></ul></td></tr><tr><td><p><a data-footnote-ref href="#user-content-fn-7"><strong>Consumer&#x3C;T></strong></a></p><p>Принимает один аргумент типа <code>T</code> и не возвращает результата.</p><ul><li>Метод: <code>void accept(T t)</code></li></ul></td><td><p><a data-footnote-ref href="#user-content-fn-8"><strong>BiConsumer&#x3C;T, U></strong></a></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, не возвращает результата.</p><ul><li>Метод: <code>void accept(T t, U u)</code></li></ul></td></tr><tr><td><p><a data-footnote-ref href="#user-content-fn-9"><strong>Supplier</strong></a></p><p>Не принимает аргументов, возвращает объект типа <code>T</code></p><ul><li>Метод: <code>T get()</code></li></ul></td><td><p><strong>ToIntFunction</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr><tr><td><p><a data-footnote-ref href="#user-content-fn-10"><strong>Predicate</strong></a></p><ul><li>Принимает один аргумент типа <code>T</code> и возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t)</code></li></ul></td><td><p><strong>BiPredicate&#x3C;T, U></strong></p><ul><li>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>UnaryOperator</strong></p><ul><li>Наследуется от <code>Function&#x3C;T, T></code>. Принимает и возвращает объект одного и того же типа.</li><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><strong>BinaryOperator</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><p><strong>Function&#x3C;T, R></strong></p><p>Принимает один аргумент типа <code>T</code> и возвращает результат типа <code>R</code> .</p><ul><li>Метод: <code>R apply(T t)</code></li></ul></td><td><p><strong>BiFunction&#x3C;T, U, R></strong></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает результат типа <code>R</code>.</p><ul><li>Метод: <code>R apply(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>UnaryOperator&#x3C;T></strong></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-5"><code>Function</code></a>, которая принимает и возвращает один и тот же тип.</p><ul><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><strong>BinaryOperator&#x3C;T></strong></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-6">BiFunction</a>, где оба аргумента и результат одного типа. </p><ul><li>Метод: <code>T apply(T t1, T t2)</code></li></ul></td></tr><tr><td><p><strong>Consumer&#x3C;T></strong></p><p>Принимает один аргумент типа <code>T</code> и не возвращает результата.</p><ul><li>Метод: <code>void accept(T t)</code></li></ul></td><td><p><strong>BiConsumer&#x3C;T, U></strong></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, не возвращает результата.</p><ul><li>Метод: <code>void accept(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>Supplier</strong></p><p>Не принимает аргументов, возвращает объект типа <code>T</code></p><ul><li>Метод: <code>T get()</code></li></ul></td><td><p><strong>ToIntFunction</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr><tr><td><p><strong>Predicate</strong></p><ul><li>Принимает один аргумент типа <code>T</code> и возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t)</code></li></ul></td><td><p><strong>BiPredicate&#x3C;T, U></strong></p><ul><li>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>UnaryOperator</strong></p><ul><li>Наследуется от <code>Function&#x3C;T, T></code>. Принимает и возвращает объект одного и того же типа.</li><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><strong>BinaryOperator</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr></tbody></table>
 
 
 
@@ -324,13 +324,6 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
 }
 </code></pre></td></tr></tbody></table>
 
-[^1]: ![](<../.gitbook/assets/image (8).png>)
-
-[^2]: ![](<../.gitbook/assets/image (12).png>)
-
-[^3]: ![](<../.gitbook/assets/image (14).png>)
-
-[^4]: ![](<../.gitbook/assets/image (15).png>)
 
 [^5]: **`Function<T, T>`**
 
@@ -340,13 +333,6 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
 
     Метод: `T apply(T t1, T t2)`
 
-[^7]: ![](<../.gitbook/assets/image (9).png>)
-
-[^8]: ![](<../.gitbook/assets/image (13).png>)
-
-[^9]: ![](<../.gitbook/assets/image (10).png>)
-
-[^10]: ![](<../.gitbook/assets/image (11).png>)
 
 [^11]: Сигнатура метода `length()`
 
