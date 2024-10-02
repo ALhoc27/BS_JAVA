@@ -5,7 +5,7 @@
 * [Лямбда-выражения](README.md)
 * [Ссылки на методы](bs\_java/ssylki-na-metody/README.md)
   * [Общая](bs\_java/ssylki-na-metody/obshaya.md)
-* [Функциональные интерфейсы](bs\_java/readme.md)
+* [Основные функциональные интерфейсы](bs\_java/readme.md)
 * [11111](bs\_java/111.md)
 
 ## Тесты

@@ -1,4 +1,5 @@
 ---
+description: в пакете java.util.function
 layout:
   title:
     visible: true
@@ -12,29 +13,21 @@ layout:
     visible: true
 ---
 
-# Функциональные интерфейсы
+# Основные функциональные интерфейсы
 
 Функциональный интерфейс — это интерфейс, содержащий один абстрактный метод. Он может иметь и другие методы, но они должны быть `default` или `static`. Чтобы указать, что интерфейс является функциональным, можно использовать аннотацию `@FunctionalInterface` но она необязательна.
 
-Основные функциональные интерфейсы в пакете `java.util.function`:
+<table data-full-width="true"><thead><tr><th width="534"></th><th width="464"></th></tr></thead><tbody><tr><td><p><a href="./#id-1.-function-less-than-t-r-greater-than"><strong>Function&#x3C;T, R></strong></a></p><p>Принимает один аргумент типа <code>T</code> и возвращает результат типа <code>R</code> .</p><ul><li>Метод: <code>R apply(T t)</code></li></ul></td><td><p><a href="./#id-2.-bifunction-less-than-t-u-r-greater-than"><strong>BiFunction&#x3C;T, U, R></strong></a></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает результат типа <code>R</code>.</p><ul><li>Метод: <code>R apply(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>UnaryOperator&#x3C;T></strong></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-1"><code>Function</code></a>, которая принимает и возвращает один и тот же тип.</p><ul><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><strong>BinaryOperator&#x3C;T></strong></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-2"><code>BiFunction</code></a>, где оба аргумента и результат одного типа.</p><ul><li>Метод: <code>T apply(T t1, T t2)</code></li></ul></td></tr><tr><td><p><strong>Consumer&#x3C;T></strong></p><p>Принимает один аргумент типа <code>T</code> и не возвращает результата.</p><ul><li>Метод: <code>void accept(T t)</code></li></ul></td><td><p><strong>BiConsumer&#x3C;T, U></strong></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, не возвращает результата.</p><ul><li>Метод: <code>void accept(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>Supplier</strong></p><p>Не принимает аргументов, возвращает объект типа <code>T</code></p><ul><li>Метод: <code>T get()</code></li></ul></td><td><p><strong>ToIntFunction</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr><tr><td><p><strong>Predicate</strong></p><ul><li>Принимает один аргумент типа <code>T</code> и возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t)</code></li></ul></td><td><p><strong>BiPredicate&#x3C;T, U></strong></p><ul><li>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>UnaryOperator</strong></p><ul><li>Наследуется от <code>Function&#x3C;T, T></code>. Принимает и возвращает объект одного и того же типа.</li><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><strong>BinaryOperator</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr></tbody></table>
 
-
-
-<table data-full-width="true"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><p><strong>Function&#x3C;T, R></strong></p><p>Принимает один аргумент типа <code>T</code> и возвращает результат типа <code>R</code> .</p><ul><li>Метод: <code>R apply(T t)</code></li></ul></td><td><p><strong>BiFunction&#x3C;T, U, R></strong></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает результат типа <code>R</code>.</p><ul><li>Метод: <code>R apply(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>UnaryOperator&#x3C;T></strong></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-5"><code>Function</code></a>, которая принимает и возвращает один и тот же тип.</p><ul><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><strong>BinaryOperator&#x3C;T></strong></p><p>Это специализация <a data-footnote-ref href="#user-content-fn-6">BiFunction</a>, где оба аргумента и результат одного типа. </p><ul><li>Метод: <code>T apply(T t1, T t2)</code></li></ul></td></tr><tr><td><p><strong>Consumer&#x3C;T></strong></p><p>Принимает один аргумент типа <code>T</code> и не возвращает результата.</p><ul><li>Метод: <code>void accept(T t)</code></li></ul></td><td><p><strong>BiConsumer&#x3C;T, U></strong></p><p>Принимает два аргумента типов <code>T</code> и <code>U</code>, не возвращает результата.</p><ul><li>Метод: <code>void accept(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>Supplier</strong></p><p>Не принимает аргументов, возвращает объект типа <code>T</code></p><ul><li>Метод: <code>T get()</code></li></ul></td><td><p><strong>ToIntFunction</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr><tr><td><p><strong>Predicate</strong></p><ul><li>Принимает один аргумент типа <code>T</code> и возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t)</code></li></ul></td><td><p><strong>BiPredicate&#x3C;T, U></strong></p><ul><li>Принимает два аргумента типов <code>T</code> и <code>U</code>, возвращает <code>boolean</code>.</li><li>Метод: <code>boolean test(T t, U u)</code></li></ul></td></tr><tr><td><p><strong>UnaryOperator</strong></p><ul><li>Наследуется от <code>Function&#x3C;T, T></code>. Принимает и возвращает объект одного и того же типа.</li><li>Метод: <code>T apply(T t)</code></li></ul></td><td><p><strong>BinaryOperator</strong></p><ul><li>Принимает объект типа <code>T</code> и возвращает целое число (<code>int</code>).</li><li>Метод: <code>int applyAsInt(T value)</code></li></ul></td></tr></tbody></table>
-
-
-
-####
-
-### 1. **Function\<T, R>**
+### 1. **Function\<T, R>**&#x20;
 
 * Принимает один аргумент типа `T` и возвращает результат типа `R` .
 * Метод: `R apply(T t)`
 * **Пример:** Преобразование строки в её длину.
 
-<table data-full-width="true"><thead><tr><th width="168">С использованием:</th><th width="787">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-11">length</a>;
+<table data-full-width="true"><thead><tr><th width="168">С использованием:</th><th width="787">Code:</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = String::<a data-footnote-ref href="#user-content-fn-3">length</a>;
 int length = func.apply("Hello, World!"); // Пример использования функции
-</code></pre></td><td></td></tr><tr><td><strong>Лямбды-выражения</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-12">s -> s.length();</a>
+</code></pre></td><td></td></tr><tr><td><strong>Лямбды-выражения</strong></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = <a data-footnote-ref href="#user-content-fn-4">s -> s.length();</a>
 <strong>int length = func.apply("Hello, World!"); // Пример использования функции
 </strong></code></pre></td><td></td></tr><tr><td><strong>Анонимной реализации</strong> интерфейса <code>Function</code></td><td><pre class="language-java"><code class="lang-java">Function&#x3C;String, Integer> func = new Function&#x3C;>() {
     @Override
@@ -60,34 +53,30 @@ int length = func.apply("Hello, World!"); // Пример использован
 * Метод: `R apply(T t, U u)`
 * Пример: Сложение двух чисел.
 
-<table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-13">Integer::sum</a>;
+<table data-full-width="true"><thead><tr><th width="194">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-5">Integer::sum</a>;
 System.out.println(sum.apply(5, 3)); // Результат: 8
-</code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-14">(a, b) -> a + b;</a> System.out.println(sum.apply(5, 3)); // Результат: 8е
+</code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-overflow="wrap"><code class="lang-java">BiFunction&#x3C;Integer, Integer, Integer> sum = <a data-footnote-ref href="#user-content-fn-6">(a, b) -> a + b;</a> System.out.println(sum.apply(5, 3)); // Результат: 8е
 </code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br><code>BiFunction</code></td><td><pre class="language-java"><code class="lang-java">import java.util.function.BiFunction;
-
 class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
-    @Override
-    public Integer apply(Integer a, Integer b) {
-        return a + b;
-    }
+@Override
+public Integer apply(Integer a, Integer b) {
+return a + b;
+}
 }
 public class Main {
-    public static void main(String[] args) {
-    // Использование реализации интерфейса
-    BiFunction&#x3C;Integer, Integer, Integer> sum = new SumFunction();
-        System.out.println(sum.apply(5, 3)); // Результат: 8
-    }
+public static void main(String[] args) {
+// Использование реализации интерфейса
+BiFunction&#x3C;Integer, Integer, Integer> sum = new SumFunction();
+System.out.println(sum.apply(5, 3)); // Результат: 8
+}
 }
 </code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс <code>BiFunction</code></td><td><pre class="language-java"><code class="lang-java">public class SumFunction implements BiFunction&#x3C;Integer, Integer, Integer> {
-    @Override
-    public Integer apply(Integer a, Integer b) {    
-        return a + b;
-    }
-    
-    public static void main(String[] args) {    
-        SumFunction sum = new SumFunction();    
-        System.out.println(sum.apply(5, 3)); 
-    }
+@Override
+public Integer apply(Integer a, Integer b) {
+
+return a + b;
+}
+public static void main(String[] args) {        SumFunction sum = new SumFunction();        System.out.println(sum.apply(5, 3)); }
 }
 </code></pre></td></tr></tbody></table>
 
@@ -97,33 +86,35 @@ public class Main {
 * Метод: `void accept(T t)`
 * Пример: Вывод строки на консоль.
 
-<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = <a data-footnote-ref href="#user-content-fn-15">System.out::println;</a>
+<table data-full-width="true"><thead><tr><th width="207">С использованием:</th><th>Code:</th></tr></thead><tbody><tr><td><strong>Cсылка на метод</strong></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">Consumer&#x3C;String> print = <a data-footnote-ref href="#user-content-fn-7">System.out::println;</a>
 print.accept("Hello, world!"); // Результат: Hello, world!
-</code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Consumer print = s -> <a data-footnote-ref href="#user-content-fn-16">System.out.println(s);</a> 
+</code></pre></td></tr><tr><td><strong>Лямбда-выражение</strong></td><td><pre class="language-java" data-full-width="true"><code class="lang-java">Consumer print = s -> <a data-footnote-ref href="#user-content-fn-8">System.out.println(s);</a> 
 print.accept("Hello, world!"); // Результат: Hello, world!
 </code></pre></td></tr><tr><td><strong>Анонимная реализация</strong> интерфейса<br><code>Consumer</code></td><td><pre class="language-java"><code class="lang-java">import java.util.function.Consumer;
-
 <strong>public static void main(String[] args) {
 </strong>// Анонимная реализация интерфейса Consumer
-    Consumer&#x3C;String> print = new Consumer&#x3C;String>() {
-        @Override
-        public void accept(String s) {
-        System.out.println(s);
-    }
+Consumer&#x3C;String> print = new Consumer&#x3C;String>() {
+@Override
+public void accept(String s) {
+System.out.println(s);
 }
-
+}
 print.accept("Hello, world!");
 </code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс <code>Consumer</code></td><td><pre class="language-java" data-overflow="wrap" data-full-width="true"><code class="lang-java">import java.util.function.Consumer;
 public class PrintConsumer implements Consumer&#x3C;String> {
 <strong>    // Реализация метода accept
 </strong>    @Override
-    public void accept(String s) {    
-        System.out.println(s);
-    }    
-    public static void main(String[] args) { // Используем класс PrintConsumer                                 
-        PrintConsumer print = new PrintConsumer();    
-        print.accept("Hello, world!"); // Результат: Hello, world!
-    }
+public void accept(String s) {
+
+System.out.println(s);
+}
+
+public static void main(String[] args) { // Используем класс PrintConsumer
+
+PrintConsumer print = new PrintConsumer();
+
+print.accept("Hello, world!"); // Результат: Hello, world!
+}
 }
 </code></pre></td></tr></tbody></table>
 
@@ -145,19 +136,20 @@ printBoth.accept("Hello", "world!"); // Результат: Hello world!
             System.out.println(s1 + " " + s2);
         }
     };
-    
-    printBoth.accept("Hello", "world!"); // Вызов метода accept
+printBoth.accept("Hello", "world!"); // Вызов метода accept
 }
 </code></pre></td></tr><tr><td><strong>Отдельный класс</strong>, который реализует интерфейс <code>BiConsumer</code></td><td><pre class="language-java"><code class="lang-java">public class PrintBothConsumer implements BiConsumer&#x3C;String, String> {
-    // Реализация метода accept
-    @Override
-    public void accept(String s1, String s2) {    
+// Реализация метода accept
+@Override
+public void accept(String s1, String s2) {
+
 <strong>        System.out.println(s1 + " " + s2);
 </strong>    }
-    public static void main(String[] args) {
-        PrintBothConsumer printBoth = new PrintBothConsumer();    
-        printBoth.accept("Hello", "world!"); // Результат: Hello world!
-    }
+public static void main(String[] args) {
+PrintBothConsumer printBoth = new PrintBothConsumer();
+
+printBoth.accept("Hello", "world!"); // Результат: Hello world!
+}
 }
 </code></pre></td></tr></tbody></table>
 
@@ -324,17 +316,15 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
 }
 </code></pre></td></tr></tbody></table>
 
-
-[^5]: **`Function<T, T>`**
+[^1]: **`Function<T, T>`**
 
     Метод: `T apply(T t)`
 
-[^6]: **`BiFunction<T, T, T>`**
+[^2]: **`BiFunction<T, T, T>`**
 
     Метод: `T apply(T t1, T t2)`
 
-
-[^11]: Сигнатура метода `length()`
+[^3]: Сигнатура метода `length()`
 
     ```java
     public int length();
@@ -344,33 +334,32 @@ public class StringLengthFunction implements ToIntFunction&#x3C;String> {
 
     Вызывается у объектов типа **`String`**
 
-    ![](<../.gitbook/assets/image (5).png>)
+    <img src="../.gitbook/assets/image (5).png" alt="" data-size="original">
 
-[^12]: Реализует метод: `R apply(T t);` где **s** - это параметр **t**, который является типом `String`, тип R в данном случае должен быть `int`.
+[^4]: Реализует метод: `R apply(T t);` где **s** - это параметр **t**, который является типом `String`, тип R в данном случае должен быть `int`.
 
-    ![](<../.gitbook/assets/image (4).png>)
+    <img src="../.gitbook/assets/image (4).png" alt="" data-size="original">
 
-[^13]: ![](<../.gitbook/assets/image (6).png>)
+[^5]: <img src="../.gitbook/assets/image (6).png" alt="" data-size="original">
 
-    #### Описание:
+    **Описание:**
 
-    Метод `sum()` принимает два аргумента типа `int` и возвращает их сумму.\
-
+    Метод `sum()` принимает два аргумента типа `int` и возвращает их сумму.\\
 
     Сочетается с сигнатурой метода:\
     `R apply(T t, U u)`
 
-[^14]: Принимает (a, b) аргументы типа:\
+[^6]: Принимает (a, b) аргументы типа:\
     `Integer, Integer`\
     **Тело функции** (лямбды) :\
-    \-> a + b; \
+    \-> a + b;\
     оно возвращает значение типа:`Integer`\
     Сочетается с сигнатурой метода:\
     `R apply(T t, U u)`
 
-[^15]: ![](<../.gitbook/assets/image (7).png>)
+[^7]: <img src="../.gitbook/assets/image (7).png" alt="" data-size="original">
 
-[^16]: Реализует метод: `void accept(T t)`\
+[^8]: Реализует метод: `void accept(T t)`\
     Интерфейса **Consumer\<T>**\
     \
     Принимает переменную типа **T**, при этом не чего не возвращая
