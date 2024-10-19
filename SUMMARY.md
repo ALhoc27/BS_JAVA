@@ -11,7 +11,8 @@
 ## BS\_JAVA\_CLASS
 
 * [JAVA\_CLASS](bs\_java\_class/java\_class.md)
-* [JAVA\_INTERFACE](bs\_java\_class/java\_interface.md)
+* [JAVA\_INTERFACE](bs\_java\_class/java\_interface/README.md)
+  * [java.util.Comparator и java.lang.Comparable](bs\_java\_class/java\_interface/java.util.comparator-i-java.lang.comparable.md)
 
 ## Тесты
 
