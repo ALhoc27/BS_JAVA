@@ -43,12 +43,12 @@ cat /Users/USERNAME/.ssh/id_rsa.pub
 Где USERNAME – ваше имя пользователя macOS.\
 Приведенные выше команды выведут ваш открытый ключ SSH.
 
-<img src=".gitbook/assets/Снимок экрана 2024-09-17 в 20.01.48.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/Снимок экрана 2024-09-17 в 20.01.48.png" alt="" data-size="original">
 
 Для отображения скрытых папок:\
 `command + shift + .`
 
-<img src=".gitbook/assets/Снимок экрана 2024-09-17 в 20.03.08.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/Снимок экрана 2024-09-17 в 20.03.08.png" alt="" data-size="original">
 
 </details>
 
