@@ -20,6 +20,9 @@
 
 * [Page 1](patterny/page-1.md)
 
-## GitHub
+***
 
-* [Page 3](github/page-3.md)
+* [GitHub](github.md)
+* [Конфликты](konflikty.md)
+* [IntelliJ IDEA и GitHub](intellij-idea-i-github.md)
+* [Добавление SHH-ключа](dobavlenie-shh-klyucha.md)
