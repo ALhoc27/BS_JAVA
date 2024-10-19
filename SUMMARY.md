@@ -10,7 +10,8 @@
 
 ## BS\_JAVA\_CLASS
 
-* [Page 2](bs\_java\_class/page-2.md)
+* [JAVA\_CLASS](bs\_java\_class/java\_class.md)
+* [JAVA\_INTERFACE](bs\_java\_class/java\_interface.md)
 
 ## Тесты
 
